@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="AITestingApp/AITestingApp.csproj" Id="ac1e8e1e-6a4b-48c0-aa4e-4c5a5c5d1ae0" />
   <Project Path="EmbeddedAILibrary/EmbeddedAILibrary.csproj" />
+  <Project Path="WpfAIApp/WpfAIApp.csproj" Id="4f05f447-25bf-4060-b309-80a289548bd2" />
 </Solution>

@@ -1,0 +1,47 @@
+﻿<Window x:Class="WpfAIApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAIApp"
+        mc:Ignorable="d" FontSize="14" FontFamily="Consolas"
+        Title="MainWindow" Height="650" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Sample Data Generator"
+                   FontSize="24" FontWeight="Bold" Margin="0,0,0,20"
+                   HorizontalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" Margin="0,0,0,15">
+            <Label Content="Number of Records" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="NumberOfRecords" Width="200" 
+                     HorizontalAlignment="Left" Padding="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="0,0,0,15">
+            <Label Content="Sample Structure" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="SampleStructure" Height="120" TextWrapping="Wrap" 
+                     AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Padding="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="0,0,0,15">
+            <Button x:Name="SubmitButton" Content="Submit" 
+                    Width="120" Height="35" HorizontalAlignment="Left"
+                    FontWeight="SemiBold" Background="#007ACC" Foreground="White" BorderThickness="0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Margin="0,0,0,15">
+            <Label Content="Results" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="Results" Height="180" TextWrapping="Wrap" FontSize="12"
+                     IsReadOnly="True" VerticalScrollBarVisibility="Auto" Padding="5"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
