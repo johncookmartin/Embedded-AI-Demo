@@ -1,13 +1,6 @@
-﻿using System.Text;
+﻿using EmbeddedAILibrary;
+using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfAIApp;
 /// <summary>
@@ -18,5 +11,30 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+    }
+
+    private async void SubmitButton_Click(object sender, RoutedEventArgs e)
+    {
+        SubmitButton.IsEnabled = false;
+        SubmitButton.Content = "Processing...";
+
+        try
+        {
+            AIGenerator generator = new(@"D:\models\Llama-3.2-3B-Instruct-Q4_K_M.gguf");
+
+            using JsonDocument jsonDocument = JsonDocument.Parse(SampleStructure.Text);
+            int numberOfRecords = int.Parse(NumberOfRecords.Text);
+            var result = await generator.GetSampleDataAsync(numberOfRecords, jsonDocument);
+
+            JsonSerializerOptions options = new() { WriteIndented = true };
+            string? output = JsonSerializer.Serialize(result, options);
+
+            Results.Text = output;
+        }
+        finally
+        {
+            SubmitButton.IsEnabled = true;
+            SubmitButton.Content = "Submit";
+        }
     }
 }
